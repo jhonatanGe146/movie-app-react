@@ -2,8 +2,10 @@ import axios from "axios";
 
 const tmdbClient = axios.create({
   baseURL: import.meta.env.VITE_TMDB_BASE_URL,
+  headers: {
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_ACCESS_TOKEN}`,
+  },
   params: {
-    api_key: import.meta.env.VITE_TMDB_API_KEY,
     language: "es-ES",
   },
 });
