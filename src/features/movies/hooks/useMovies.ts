@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { fetchPopularMovies, searchMovies, setSearchQuery, toggleFavorite } from '../store/moviesSlice'
 import type { Movie } from '../types/movie.types'
@@ -15,12 +15,12 @@ export const useMovies = () => {
     }
   }, [dispatch, isSearching, popular.status])
 
-  const handleSearch = (query: string) => {
+  const handleSearch = useCallback((query: string) => {
     dispatch(setSearchQuery(query))
     if (query.trim()) {
       dispatch(searchMovies({ query, page: 1 }))
     }
-  }
+  }, [dispatch])
 
   const handlePageChange = (page: number) => {
     if (isSearching) {

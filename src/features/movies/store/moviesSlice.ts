@@ -72,9 +72,9 @@ const moviesSlice = createSlice({
   reducers: {
     setSearchQuery(state, action: PayloadAction<string>) {
       state.search.query = action.payload
+      state.search.page = 1
       if (!action.payload) {
         state.search.data = []
-        state.search.page = 1
         state.search.totalPages = 1
         state.search.status = 'idle'
       }

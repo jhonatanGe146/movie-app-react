@@ -23,8 +23,8 @@ export const store = configureStore({
   },
   preloadedState: {
     movies: {
-      popular: { data: [], page: 1, totalPages: 1, status: 'idle', error: null },
-      search: { query: '', data: [], page: 1, totalPages: 1, status: 'idle', error: null },
+      popular: { data: [], page: 1, totalPages: 1, status: 'idle' as const, error: null },
+      search: { query: '', data: [], page: 1, totalPages: 1, status: 'idle' as const, error: null },
       favorites: loadFavorites(),
     },
   },

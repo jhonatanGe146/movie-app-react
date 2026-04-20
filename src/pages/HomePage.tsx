@@ -12,7 +12,7 @@ const HomePage = () => {
 
   useEffect(() => {
     handleSearch(debouncedQuery)
-  }, [debouncedQuery])
+  }, [debouncedQuery, handleSearch])
 
   return (
     <Box sx={{ maxWidth: 1400, mx: 'auto', display: 'flex', flexDirection: 'column', gap: 2 }}>
